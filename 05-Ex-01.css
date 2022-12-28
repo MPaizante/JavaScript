@@ -21,14 +21,11 @@ header{
             margin:auto;/*isso é muito importante, deixa vc diminuir a tela e aumentar sem problema*/
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
     }
-        div#foto{
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            background-image: url(imagens/manha.jpg);
-            background-position: center center;
+        div{
+            text-align: center;
+            padding: 10px;
             
-        }
+        } 
 
 footer{
             color: white;
