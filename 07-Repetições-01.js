@@ -9,7 +9,7 @@ var b = 1
 
 for (var a = 1; a <= 10;a++   ){
     console.log (`Contando ${a}`)
-}
+}//use esse modo
 
 while (b <= 5) {
     console.log(b)
@@ -17,3 +17,9 @@ while (b <= 5) {
 
 
 }
+
+console.log('Vamos lá...')
+for(var w = 2; w <= 20; w+=2){
+    console.log(w)
+}
+console.log('Cabou')
