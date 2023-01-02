@@ -12,13 +12,19 @@ function contar(){
         let i = Number(ini.value)
         let f = Number(fim.value)
         let p = Number(passo.value)
-        
-        for (let c = i ; c <= f ; c += p){
-            res.innerHTML += `  ${c}\u{1F60A}`
 
+        if (i < f){ //contagem crescente
+            for (let c = i ; c <= f ; c += p){
+                res.innerHTML += `  ${c}\u{1F60A}`
+                
+    
+            }
+        } else{ //contagem descrecente
+            for (let c = i ; c >= f ; c -= p){
+                res.innerHTML += ` ${c}\u{1F60A} `
+            }
         }
-
         res.innerHTML += ` \u{1F680}`
-
+        
     }
 }
