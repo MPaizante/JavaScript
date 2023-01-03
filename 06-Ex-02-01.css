@@ -21,6 +21,10 @@ header{
             margin:auto;/*isso é muito importante, deixa vc diminuir a tela e aumentar sem problema*/
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
     }
+
+    select#flista{
+        width: 150px;
+    }
         div{
             
             padding: 10px;
