@@ -5,5 +5,13 @@ idade = 24
 b = 3;
 c = a + b;
 alert(c);*/
-document.getElementById('texto1').innerHTML = 'Meu nome é ' + nome + ', eu tenho a idade de '+ idade + ' anos.' ;
+let v1 , v2 , v3 , v4;
+v1 = 5;
+v2 = 2;
+v3 = (v1 + v2) + 10;
+v4 = '5'
+alert(v1 === v4 );
+
+
+document.getElementById('texto1').innerHTML = 'Meu nome é ' + nome + ', eu tenho a idade de '+ idade + ' anos.' + '    ' + v3;
 
