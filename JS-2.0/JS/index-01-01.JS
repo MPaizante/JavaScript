@@ -49,3 +49,13 @@ function viraVermelho(){
     let div = document.getElementById('teste');
     div.style.backgroundColor = 'red'
 }
+
+function viraVerde(){
+    let div = document.getElementById('teste');
+    div.style.backgroundColor = 'green'
+}
+
+function adcionaTexto(){
+    let p = window.document.getElementById('texto');
+    p.append('O mouse moveu.');
+}
