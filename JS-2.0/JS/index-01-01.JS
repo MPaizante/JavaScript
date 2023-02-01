@@ -59,5 +59,5 @@ function adcionaTexto(){
     let p = window.document.getElementById('texto');
     p.append('O mouse moveu.');
 
-    .
+    
 }
