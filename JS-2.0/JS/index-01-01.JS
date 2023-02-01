@@ -36,7 +36,7 @@ onresize = quando há um redirecionamento da janela
 
 */ 
 
-function eventoClick(){//botão
+/*function eventoClick(){//botão
     //alert('N aguento mais estudar, estou louco kkkk')//botão
     document.body.style.backgroundColor = "lightblue"
 }
@@ -61,3 +61,21 @@ function adcionaTexto(){
 
     
 }
+function limpaTexto(){
+    document.getElementById('campoTexto').value = " ";
+}*/
+
+//Array
+
+
+const lista = ["arroz", "feijão", "macarrão", "leite"];
+lista.push("Brasileiro");// add no final um item 
+//alert(lista.length); saber quantos itens tem
+//alert(lista[lista.length -1]); para mostrar o ultimo item
+lista.pop();//tirou o brasileiro, no caso tira o ultimo item da lista
+lista.shift();//remove o primeiro item no caso "arroz"
+lista.unshift("carne")// add carne como primiero item 
+lista.splice(3,0,"refrigerante", "pudim")//3 é posição e 0 é quantos quero que remova
+
+document.getElementById("teste").innerHTML = lista.join(" VAI FILHÃO ");
+
