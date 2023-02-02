@@ -68,7 +68,7 @@ function limpaTexto(){
 //Array
 
 
-const lista = ["arroz", "feijão", "macarrão", "leite"];
+/*const lista = ["arroz", "feijão", "macarrão", "leite"];
 lista.push("Brasileiro");// add no final um item 
 //alert(lista.length); saber quantos itens tem
 //alert(lista[lista.length -1]); para mostrar o ultimo item
@@ -77,5 +77,42 @@ lista.shift();//remove o primeiro item no caso "arroz"
 lista.unshift("carne")// add carne como primiero item 
 lista.splice(3,0,"refrigerante", "pudim")//3 é posição e 0 é quantos quero que remova
 
-document.getElementById("teste").innerHTML = lista.join(" VAI FILHÃO ");
+document.getElementById("teste").innerHTML = lista.join(" VAI FILHÃO ");*/
+
+// If e Else ************* Muito importante
+
+let hora = new Date().getHours();
+if(hora <12){
+    //alert('Bom Dia');
+}
+else if(hora <18){
+    //alert('Boa tarde');
+}
+else{
+    //alert('Boa noite');
+}
+
+function verificar(){
+    let nome = document.getElementById('nome').value;
+    if (nome == '' || nome == null){
+        let p = document.getElementById('teste');
+        p.innerHTML = 'O campo não pode ser vazio.';
+        p.style.color = 'red';
+    }
+    else{
+        let p = document.getElementById("teste");
+        p.innerHTML = "Tudo certo.";
+        p.style.color = "blue";
+    
+    }
+    
+}
+
+switch (){
+    case a :
+        break
+    case b:
+        break
+}
+
 
