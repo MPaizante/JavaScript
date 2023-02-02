@@ -81,7 +81,7 @@ document.getElementById("teste").innerHTML = lista.join(" VAI FILHÃO ");*/
 
 // If e Else ************* Muito importante
 
-let hora = new Date().getHours();
+/*let hora = new Date().getHours();
 if(hora <12){
     //alert('Bom Dia');
 }
@@ -106,13 +106,27 @@ function verificar(){
     
     }
     
+}*/
+
+
+function verificaCor(){
+    let cor = document.getElementById('cor').value;
+    
+    switch (cor){
+        case "azul":
+            document.body.style.backgroundColor = 'blue';
+            break;
+        case 'vermelho':
+            document.body.style.backgroundColor = 'red';
+            break;
+        case 'verde':
+            document.body.style.backgroundColor = 'green';
+            break;
+        case 'cinza':
+            document.body.style.backgroundColor = 'gray';
+            break;
+        default:
+            document.getElementById('teste').innerHTML = 'Nenhuma cor disponivel para: '+ cor;
+    }
+    
 }
-
-switch (){
-    case a :
-        break
-    case b:
-        break
-}
-
-
