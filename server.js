@@ -1,3 +1,4 @@
+import app from './src/app.js'
 //Porta
 const port = 3000
 
