@@ -18,7 +18,7 @@ app.get('/',(req, res) =>{
 })
 
 app.get('/selecoes', (req , res)=>{
-    res.send('Lista de seleções')
+    res.status(200).send(selecoes)
 })
 
 
