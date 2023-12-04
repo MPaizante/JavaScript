@@ -73,24 +73,36 @@ app.delete('/selecoes/:id',(req,res) => {
     //selecoes.splice(index, 1)
     //res.send(`Seleção com id ${req.params.id} excluida com sucesso.`)
     const id = req.params.id
-    const sql = "SELECT * FROM selecoes WHERE id=?;"
+    const sql = "DELETE FROM selecoes WHERE id=?;"
     conexao.query(sql, id, (erro, resultado)=>{
-        const linha = resultado[0]
+        //const linha = resultado[0]
         if (erro){
             console.log(erro)
             res.status(404).json({'erro' : erro})
         }else{
-            res.status(200).json(linha)
+            res.status(200).json(resultado)
         }
     })
 
 })
 
 app.put('/selecoes/:id',(req,res) => {
-    let index = buscarIndexSelecao(req.params.id)
-    selecoes[index].selecao = req.body.selecao
-    selecoes[index].grupo = req.body.grupo
-    res.json(selecoes)
+    //let index = buscarIndexSelecao(req.params.id)
+    //selecoes[index].selecao = req.body.selecao
+    //selecoes[index].grupo = req.body.grupo
+    //res.json(selecoes)
+    const id = req.params.id
+    const selecao = req.body
+    const sql = "UPDATE selecoes SET ? WHERE id=?;"
+    conexao.query(sql, [selecao, id], (erro, resultado)=>{
+        //const linha = resultado[0]
+        if (erro){
+            console.log(erro)
+            res.status(400).json({'erro' : erro})
+        }else{
+            res.status(200).json(resultado)
+        }
+    })
 })
 
 
