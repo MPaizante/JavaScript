@@ -1,4 +1,5 @@
 import express from 'express'
+import conexao from '../Infra/conexao'
 
 
 const app = express()
@@ -6,13 +7,7 @@ const app = express()
 
 //indicar para o express ler body com json
 app.use(express.json())
-//mock
-const selecoes = [
-    {id: 1, selecao:'Brasil', grupo: 'G'},
-    {id: 2, selecao:'Suíça', grupo: 'G'},
-    {id: 3, selecao:'Camarões', grupo: 'G'},
-    {id: 4, selecao:'Sérvia', grupo: 'G'}
-]
+
 //retonar o obj por id
 function buscarSelecaoPorId(id) {
     return selecoes.filter(selecao => selecao.id == id)
@@ -23,14 +18,21 @@ function buscarSelecaoPorId(id) {
 function buscarIndexSelecao(id){
     return selecoes.findIndex(selecao => selecao.id == id)
 }
-// rota padrão
 
-app.get('/',(req, res) =>{
-    res.send('Olá Mundo!')
-})
+
+//ROTAS
 
 app.get('/selecoes', (req , res)=>{
-    res.status(200).send(selecoes)
+    //res.status(200).send(selecoes)
+    const sql = "SELECT * FROM selecoes;"
+    conexao.query(sql, (erro, resultado)=>{
+        if (erro){
+            console.log(erro)
+            res.status(404).json({'erro' : 'Dados não localizado!'})
+        }else{
+            res.status(200).json(resultado)
+        }
+    })
 })
 
 app.get('/selecoes/:id', (req,res) =>{
