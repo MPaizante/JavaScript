@@ -14,9 +14,7 @@ class SelecaoRepository{
                 //fazer parse dos resultados
                 const row = JSON.parse(JSON.stringify(resultado))
                 return resolve(row)
-
-                
-                
+                     
             })
         })
     
@@ -25,7 +23,7 @@ class SelecaoRepository{
     findById(id){
         //const id = req.params.id
         const sql = "SELECT * FROM selecoes WHERE id=?;"
-        conexao.query(sql, id, (erro, resultado)=>{
+        /*conexao.query(sql, id, (erro, resultado)=>{
             const linha = resultado[0]
             if (erro){
                 console.log(erro)
@@ -33,6 +31,15 @@ class SelecaoRepository{
             }else{
                 res.status(200).json(linha)
             }
+        })*/
+        return new Promise((resolve, reject) =>{
+            conexao.query(sql, id, (erro, resultado)=>{
+                if(erro)return reject('Não foi possivel localizar.')
+                //fazer parse dos resultados
+                const row = JSON.parse(JSON.stringify(resultado))
+                return resolve(row)
+                     
+            })
         })
     }
 

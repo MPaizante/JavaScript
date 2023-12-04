@@ -16,7 +16,7 @@ class SelecaoController{
         const row = await SelecaoRepository.findAll()
         res.json(row)
     }
-    show(req,res){
+    async show(req,res){
         //let index = req.params.id
         //res.json(buscarSelecaoPorId(req.params.id))
         /*const id = req.params.id
@@ -31,7 +31,8 @@ class SelecaoController{
             }
         })*/
         const id = req.params.id
-        const row = SelecaoRepository.findById(id)
+        const row =  await SelecaoRepository.findById(id)
+        res.json(row)
     }
     store (req , res){
         //selecoes.push(req.body)
