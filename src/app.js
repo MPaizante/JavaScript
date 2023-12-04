@@ -1,5 +1,5 @@
 import express from 'express'
-import conexao from '../Infra/conexao.js'
+import conexao from './app/database/conexao.js'
 
 
 const app = express()
@@ -9,15 +9,15 @@ const app = express()
 app.use(express.json())
 
 //retonar o obj por id
-function buscarSelecaoPorId(id) {
+/*function buscarSelecaoPorId(id) {
     return selecoes.filter(selecao => selecao.id == id)
-}
+}*/
 
 
 // pegar a posiçao do elemento no array por id
-function buscarIndexSelecao(id){
+/*function buscarIndexSelecao(id){
     return selecoes.findIndex(selecao => selecao.id == id)
-}
+}*/
 
 
 //ROTAS
@@ -60,7 +60,7 @@ app.post('/selecoes', (req , res) =>{
         const linha = resultado[0]
         if (erro){
             console.log(erro)
-            res.status(400).json({'erro' : erro})
+            res.status(404).json({'erro' : erro})
         }else{
             res.status(201).json(resultado)
         }
@@ -98,7 +98,7 @@ app.put('/selecoes/:id',(req,res) => {
         //const linha = resultado[0]
         if (erro){
             console.log(erro)
-            res.status(400).json({'erro' : erro})
+            res.status(404).json({'erro' : erro})
         }else{
             res.status(200).json(resultado)
         }
