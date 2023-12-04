@@ -1,5 +1,5 @@
 import express from 'express'
-import conexao from '../Infra/conexao'
+import conexao from '../Infra/conexao.js'
 
 
 const app = express()
@@ -28,7 +28,7 @@ app.get('/selecoes', (req , res)=>{
     conexao.query(sql, (erro, resultado)=>{
         if (erro){
             console.log(erro)
-            res.status(404).json({'erro' : 'Dados não localizado!'})
+            res.status(404).json({'erro' : erro})
         }else{
             res.status(200).json(resultado)
         }
@@ -37,18 +37,53 @@ app.get('/selecoes', (req , res)=>{
 
 app.get('/selecoes/:id', (req,res) =>{
     //let index = req.params.id
-    res.json(buscarSelecaoPorId(req.params.id))
+    //res.json(buscarSelecaoPorId(req.params.id))
+    const id = req.params.id
+    const sql = "SELECT * FROM selecoes WHERE id=?;"
+    conexao.query(sql, id, (erro, resultado)=>{
+        const linha = resultado[0]
+        if (erro){
+            console.log(erro)
+            res.status(404).json({'erro' : erro})
+        }else{
+            res.status(200).json(linha)
+        }
+    })
 })
 
 app.post('/selecoes', (req , res) =>{
-    selecoes.push(req.body)
-    res.status(201).send('Seleção cadastrada com sucesso!')
+    //selecoes.push(req.body)
+    //res.status(201).send('Seleção cadastrada com sucesso!')
+    const selecao = req.body
+    const sql = "INSERT INTO selecoes SET ?;"
+    conexao.query(sql, selecao, (erro, resultado)=>{
+        const linha = resultado[0]
+        if (erro){
+            console.log(erro)
+            res.status(400).json({'erro' : erro})
+        }else{
+            res.status(201).json(resultado)
+        }
+    })
+
 })
 
 app.delete('/selecoes/:id',(req,res) => {
-    let index = buscarIndexSelecao(req.params.id)
-    selecoes.splice(index, 1)
-    res.send(`Seleção com id ${req.params.id} excluida com sucesso.`)
+    //let index = buscarIndexSelecao(req.params.id)
+    //selecoes.splice(index, 1)
+    //res.send(`Seleção com id ${req.params.id} excluida com sucesso.`)
+    const id = req.params.id
+    const sql = "SELECT * FROM selecoes WHERE id=?;"
+    conexao.query(sql, id, (erro, resultado)=>{
+        const linha = resultado[0]
+        if (erro){
+            console.log(erro)
+            res.status(404).json({'erro' : erro})
+        }else{
+            res.status(200).json(linha)
+        }
+    })
+
 })
 
 app.put('/selecoes/:id',(req,res) => {
