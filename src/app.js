@@ -5,11 +5,14 @@ import router from './routes.js'
 
 
 const app = express()
-//usar o router
-app.use(router)
 
 //indicar para o express ler body com json
 app.use(express.json())
+
+//usar o router
+app.use(router)
+
+
 
 //retonar o obj por id
 /*function buscarSelecaoPorId(id) {

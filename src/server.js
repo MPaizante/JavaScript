@@ -3,7 +3,7 @@ import app from './app.js'
 
 
 //Porta
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //fazer a conexao
  // escutar a porta 3000
