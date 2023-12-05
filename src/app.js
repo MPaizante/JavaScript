@@ -1,10 +1,12 @@
 import express from 'express'
+import router from './routes.js'
 
-import SelecaoController from './app/controllers/SelecaoController.js'
+//import SelecaoController from './app/controllers/SelecaoController.js'
 
 
 const app = express()
-
+//usar o router
+app.use(router)
 
 //indicar para o express ler body com json
 app.use(express.json())
@@ -23,7 +25,7 @@ app.use(express.json())
 
 //ROTAS
 
-app.get('/selecoes', SelecaoController.index)/*(req , res)=>{
+/*app.get('/selecoes', SelecaoController.index)/*(req , res)=>{
     //res.status(200).send(selecoes)
     const sql = "SELECT * FROM selecoes;"
     conexao.query(sql, (erro, resultado)=>{
@@ -36,7 +38,7 @@ app.get('/selecoes', SelecaoController.index)/*(req , res)=>{
     })
 }*/
 
-app.get('/selecoes/:id', SelecaoController.show) /*(req,res) =>{
+/*app.get('/selecoes/:id', SelecaoController.show) /*(req,res) =>{
     //let index = req.params.id
     //res.json(buscarSelecaoPorId(req.params.id))
     const id = req.params.id
@@ -52,7 +54,7 @@ app.get('/selecoes/:id', SelecaoController.show) /*(req,res) =>{
     })
 })*/
 
-app.post('/selecoes', SelecaoController.store) /*(req , res) =>{
+/*app.post('/selecoes', SelecaoController.store) /*(req , res) =>{
     //selecoes.push(req.body)
     //res.status(201).send('Seleção cadastrada com sucesso!')
     const selecao = req.body
@@ -69,7 +71,7 @@ app.post('/selecoes', SelecaoController.store) /*(req , res) =>{
 
 })*/
 
-app.put('/selecoes/:id', SelecaoController.update)/*(req,res) => {
+/*app.put('/selecoes/:id', SelecaoController.update)/*(req,res) => {
     //let index = buscarIndexSelecao(req.params.id)
     //selecoes[index].selecao = req.body.selecao
     //selecoes[index].grupo = req.body.grupo
@@ -89,7 +91,7 @@ app.put('/selecoes/:id', SelecaoController.update)/*(req,res) => {
 })*/
 
 
-app.delete('/selecoes/:id', SelecaoController.delete)/*(req,res) => {
+/*app.delete('/selecoes/:id', SelecaoController.delete)/*(req,res) => {
     //let index = buscarIndexSelecao(req.params.id)
     //selecoes.splice(index, 1)
     //res.send(`Seleção com id ${req.params.id} excluida com sucesso.`)
